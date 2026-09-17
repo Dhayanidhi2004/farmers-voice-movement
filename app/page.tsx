@@ -234,9 +234,6 @@ export default function Home() {
             {["home", "crisis", "season", "demands", "compare", "act", "evidence", "solutions", "myths", "faq", "spread"].map((id, index) => <a key={id} href={`#${id}`} onClick={closeMenu}>{t.nav[index]}</a>)}
           </nav>
           <div className="header-actions">
-            <a className="call-link" href={CALL_HREF} aria-label={`${t.callUs} ${CALL_NUMBER}`}>
-              <PhoneIcon /> <span>{CALL_NUMBER}</span>
-            </a>
             <button className="language" onClick={() => setLang(lang === "en" ? "ta" : "en")} aria-label={lang === "en" ? "தமிழுக்கு மாற்றுக" : "ஆங்கிலத்திற்கு மாற்றுக"}>{lang === "en" ? "தமிழ்" : "ஆங்கிலம்"}</button>
             <button className="share-small" onClick={shareMovement}>{shared ? t.copied : t.share} <Arrow /></button>
             <button className="menu-button" aria-label={lang === "ta" ? "பட்டியலைத் திறக்க" : "Open menu"} aria-expanded={menuOpen} onClick={() => setMenuOpen(!menuOpen)}><span></span><span></span></button>
@@ -245,9 +242,9 @@ export default function Home() {
       </header>
 
       <section className="hero" id="home">
+        <p className="hero-location">{t.heroTag}</p>
         <div className="hero-grid">
           <div className="hero-copy">
-            <p className="kicker"><span></span>{t.heroTag}</p>
             <h1>{t.heroTitle}</h1>
             <p className="hero-body">{t.heroBody}</p>
             <div className="hero-actions"><a className="button button-primary" href="#act">{t.join} <Arrow /></a><a className="button button-outline" href="#evidence">{t.read}</a></div>
