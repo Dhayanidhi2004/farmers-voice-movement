@@ -87,6 +87,7 @@ const ui = {
 
 const CALL_NUMBER = "+91 9566137117";
 const CALL_HREF = "tel:+919566137117";
+const STORE_URL = "https://organic-mango.onrender.com/";
 
 const problems: { art: CartoonName; title: Bilingual; body: Bilingual }[] = [
   { art: "priceGap", title: { en: "Price collapse", ta: "விலை வீழ்ச்சி" }, body: { en: "Growers report ₹4–5/kg against a notified intervention price of ₹15.45/kg.", ta: "அறிவிக்கப்பட்ட ₹15.45/கிலோ விலைக்கு எதிராக ₹4–5 மட்டுமே கிடைப்பதாக விவசாயிகள் தெரிவிக்கின்றனர்." } },
@@ -253,10 +254,26 @@ export default function Home() {
             <p className="source-note">● {t.sourced}</p>
           </div>
           <div className="hero-side">
-            <a className="hero-call" href={CALL_HREF} aria-label={`${t.callUs} ${CALL_NUMBER}`}>
-              <span className="hero-call-icon"><PhoneIcon /></span>
-              <span className="hero-call-text"><small>{t.callUs}</small><strong>{CALL_NUMBER}</strong></span>
-            </a>
+            <div className="hero-links">
+              <a
+                className="hero-store"
+                href={STORE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={lang === "ta" ? "ஆர்கானிக் மாம்பழக் கடையைத் திறக்க (புதிய தாவலில்)" : "Open the Organic Mango store (new tab)"}
+              >
+                <span className="hero-store-icon" aria-hidden="true">🥭</span>
+                <span className="hero-store-text">
+                  <small>{lang === "ta" ? "நேரடியாக விவசாயிகளிடம்" : "Buy direct from farmers"}</small>
+                  <strong>{lang === "ta" ? "ஆர்கானிக் மாம்பழம்" : "Organic Mango Store"}</strong>
+                </span>
+                <span className="hero-store-arrow" aria-hidden="true">↗</span>
+              </a>
+              <a className="hero-call" href={CALL_HREF} aria-label={`${t.callUs} ${CALL_NUMBER}`}>
+                <span className="hero-call-icon"><PhoneIcon /></span>
+                <span className="hero-call-text"><small>{t.callUs}</small><strong>{CALL_NUMBER}</strong></span>
+              </a>
+            </div>
             <div className="hero-emblem">
             <span className="hero-ring ring-one"></span><span className="hero-ring ring-two"></span>
             <button
